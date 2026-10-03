@@ -1,4 +1,4 @@
-# FARNAJ Cuisine 🍽️
+# FARNAJ Cuisine 
 
 FARNAJ Cuisine is a food and restaurant website designed to provide users with an attractive and easy-to-use online dining experience. The website presents the restaurant, its menu, and other important information in a simple and organized way.
 
