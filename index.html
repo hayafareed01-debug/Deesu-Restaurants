@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FARNAJ Cuisine</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FARNAJ Cuisine
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="menu.html">Menu</a></li>
+
+            <li><a href="#reviews">Reviews</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <a href="menu.html" class="cart-btn">
+            Order Now
+        </a>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>FARNAJ Cuisine</h1>
+
+            <h2>
+                Authentic Pakistani & Fusion Flavors
+            </h2>
+
+            <p>
+                Freshly Prepared • Hygienically Cooked • Delivered Fast
+            </p>
+
+            <a href="menu.html" class="hero-btn">
+
+                Explore Menu
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature-box">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>Fresh Food</h3>
+
+            <p>
+                Prepared daily with premium ingredients.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Quick delivery across Rawalpindi.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h3>4.9 Rating</h3>
+
+            <p>
+                Loved by hundreds of happy customers.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>About FARNAJ Cuisine</h2>
+
+        <p>
+
+            FARNAJ Cuisine is committed to bringing
+            authentic Pakistani and fusion flavors to
+            your table. From Biryani and Haleem to
+            Burgers, Handi, Chaat and Continental dishes,
+            every meal is prepared with care,
+            quality and hygiene.
+
+        </p>
+
+    </section>
+
+    <!-- POPULAR DISHES -->
+
+    <section class="popular">
+
+        <h2>Popular Dishes</h2>
+
+        <div class="popular-grid">
+
+            <div class="dish-card">
+
+                <h3>Chicken Biryani Classic</h3>
+
+                <p>PKR 569</p>
+
+            </div>
+
+            <div class="dish-card">
+
+                <h3>Chicken Haleem</h3>
+
+                <p>PKR 439</p>
+
+            </div>
+
+            <div class="dish-card">
+
+                <h3>Chicken Patty Burger</h3>
+
+                <p>PKR 399</p>
+
+            </div>
+
+            <div class="dish-card">
+
+                <h3>Chicken Macaroni With Cheese</h3>
+
+                <p>PKR 499</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- REVIEWS -->
+
+    <section class="reviews" id="reviews">
+
+        <h2>Customer Reviews</h2>
+
+        <div class="review-container">
+
+            <div class="review-card">
+
+                ⭐⭐⭐⭐⭐
+
+                <p>
+                    Amazing Chicken Biryani and excellent service.
+                </p>
+
+                <h4>Usman Javed</h4>
+
+            </div>
+
+            <div class="review-card">
+
+                ⭐⭐⭐⭐⭐
+
+                <p>
+                    Fresh food and on-time delivery.
+                    Will order again.
+                </p>
+
+                <h4>Rabbiya Hameed</h4>
+
+            </div>
+
+            <div class="review-card">
+
+                ⭐⭐⭐⭐⭐
+
+                <p>
+                    Haleem and Fried Naan arrived hot
+                    and perfectly packed.
+                </p>
+
+                <h4>Z K</h4>
+
+            </div>
+
+            <div class="review-card">
+
+                ⭐⭐⭐⭐⭐
+
+                <p>
+                    Excellent packaging and delicious taste.
+                </p>
+
+                <h4>Customer</h4>
+
+            </div>
+
+        </div>
+
+        <!-- REVIEW FORM -->
+
+        <div class="review-form">
+
+            <h3>Write Your Review</h3>
+
+            <input
+            type="text"
+            id="reviewName"
+            placeholder="Your Name">
+
+            <select id="reviewRating">
+
+                <option>⭐⭐⭐⭐⭐</option>
+                <option>⭐⭐⭐⭐</option>
+                <option>⭐⭐⭐</option>
+                <option>⭐⭐</option>
+                <option>⭐</option>
+
+            </select>
+
+            <textarea
+            id="reviewText"
+            rows="5"
+            placeholder="Write your review here...">
+            </textarea>
+
+            <input
+            type="file"
+            id="reviewImage"
+            accept="image/*">
+
+            <button onclick="submitReview()">
+
+                Submit Review
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- MAP -->
+
+    <section class="map-section">
+
+        <h2>Find Us</h2>
+
+        <iframe
+        src="https://www.google.com/maps?q=FARNAJ%20Cuisine%20Rawalpindi&output=embed"
+        width="100%"
+        height="450"
+        loading="lazy">
+        </iframe>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            📍 CB-175 Lane 3, Near Radio Pakistan,
+            Rawalpindi
+        </p>
+
+        <p>
+            📞 +92 345 5276276
+        </p>
+
+        <p>
+            🕒 Open Daily 11 AM – 11 PM
+        </p>
+
+        <a
+        href="https://wa.me/923455276276"
+        class="whatsapp-btn"
+        target="_blank">
+
+            Order On WhatsApp
+
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>FARNAJ Cuisine</h3>
+
+            <p>
+                Authentic Pakistani & Fusion Flavors
+            </p>
+
+            <p>
+                © 2026 FARNAJ Cuisine
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+
+    <a
+    href="https://wa.me/923455276276"
+    class="floating-whatsapp"
+    target="_blank">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
