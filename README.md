@@ -1,29 +1,54 @@
 # FARNAJ Cuisine 
 
-FARNAJ Cuisine is a food and restaurant website designed to provide users with an attractive and easy-to-use online dining experience. The website presents the restaurant, its menu, and other important information in a simple and organized way.
+FARNAJ Cuisine is a modern restaurant website developed using HTML, CSS, JavaScript, and Firebase. The platform allows customers to browse the menu, add items to a cart, place orders online, and enables administrators to manage incoming orders through a secure admin panel.
 
-##  Project Overview
-
-The purpose of this project is to create a responsive and user-friendly restaurant website using front-end web development technologies.
-
-The website provides visitors with information about FARNAJ Cuisine and allows them to explore the available food items and restaurant details.
+---
 
 ##  Features
 
-*  Home page with restaurant introduction
-*  Food menu section
-*  Details about available dishes
-*  Contact/information section
-*  Clean and attractive user interface
-*  Responsive website design
-*  Images and visual content for food items
-*  Easy navigation between different sections
+### Customer Side
+
+- Modern and attractive restaurant website
+- Fully responsive design for mobile, tablet, and desktop
+- Browse restaurant menu
+- Search menu items instantly
+- Filter menu by categories
+- Add items to cart
+- Increase or decrease item quantity
+- Customer details form before checkout
+- Order placement with Firebase integration
+- Professional success popup after order submission
+
+### Admin Panel
+
+- Secure Firebase Authentication login
+- Protected admin access
+- View all customer orders
+- View customer information and ordered items
+- Mark orders as completed
+- Delete orders
+- Logout functionality
+
+### Order Management
+
+- Orders stored in Firebase Firestore
+- Customer details saved automatically
+- Order status tracking
+- Pending and Completed order management
+
+---
 
 ##  Technologies Used
 
-* **HTML5** – Used to create the structure of the website
-* **CSS3** – Used for styling, layout, colors, and responsive design
-* **JavaScript** – Used to add functionality and interactivity
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Firebase Firestore
+- Firebase Authentication
+- Google Fonts
+- Font Awesome
+
+---
 
 ##  Project Structure
 
@@ -31,42 +56,181 @@ The website provides visitors with information about FARNAJ Cuisine and allows t
 FARNAJ-Cuisine/
 │
 ├── index.html
+├── menu.html
+├── login.html
+├── admin.html
+│
 ├── css/
+│   ├── style.css
+│   └── menu.css
+│
 ├── js/
-├── images/
-└── README.md
+│   ├── firebase.js
+│   ├── menu.js
+│   ├── login.js
+│   └── admin.js
+│
+├── data/
+│   └── menu-data.js
+│
+├── assets/
+│   ├── images
+│   └── logo
+│
+└── screenshots/
 ```
 
-> The exact file and folder names may vary depending on the final project structure.
+---
 
-##  How to Run the Project
+##  Firebase Integration
 
-1. Download or clone this repository.
-2. Open the project folder in **Visual Studio Code**.
-3. Open `index.html`.
-4. Run the website using a browser or the **Live Server** extension in VS Code.
+### Firestore Database
+
+The project uses Firebase Firestore to store customer orders.
+
+Collection:
+
+```text
+orders
+```
+
+Each order contains:
+
+```javascript
+{
+  customerName,
+  phone,
+  address,
+  items,
+  total,
+  status,
+  createdAt
+}
+```
+
+### Firebase Authentication
+
+Firebase Authentication is used to secure the admin panel.
+
+Only authorized administrators can access:
+
+```text
+admin.html
+```
+
+---
+
+##  Live Website
+
+### Customer Website
+
+https://farnaj-cuisine.web.app
+
+### Admin Login
+
+https://farnaj-cuisine.web.app/login.html
+
+---
+
+##  Responsive Design
+
+The website is fully responsive and optimized for:
+
+- Desktop Computers
+- Tablets
+- Mobile Phones
+
+Responsive features include:
+
+- Flexible layouts
+- Mobile-friendly navigation
+- Responsive menu cards
+- Full-screen cart drawer on mobile devices
+- Touch-friendly buttons and inputs
+
+---
+
+##  Ordering Process
+
+1. Customer opens the menu page.
+2. Customer browses menu items.
+3. Items are added to the cart.
+4. Customer enters:
+   - Name
+   - Phone Number
+   - Delivery Address
+5. Customer clicks "Place Order".
+6. Order is saved to Firebase Firestore.
+7. Success popup confirms the order submission.
+8. Admin can view and manage orders from the admin dashboard.
+
+---
+
+##  Admin Features
+
+The admin dashboard provides:
+
+- Secure login authentication
+- Order monitoring
+- Customer details viewing
+- Order status updates
+- Order deletion
+- Logout system
+
+---
 
 ##  Screenshots
 
-Screenshots of the website can be added here to show the main pages and features of the project.
+Recommended screenshots for the repository:
 
-Example:
+### Home Page
+- Hero Section
+- Featured Menu
 
-* Home Page
-* Menu Page
-* About/Restaurant Section
-* Contact Section
+### Menu Page
+- Menu Categories
+- Search Bar
+- Food Cards
 
-##  Project Objective
+### Cart System
+- Cart Drawer
+- Customer Information Form
 
-The main objective of this project is to practice front-end web development skills by designing and developing a complete restaurant website with a user-friendly interface.
+### Order Confirmation
+- Success Popup
 
-##  Author
+### Admin Panel
+- Login Page
+- Orders Dashboard
+- Order Management Features
+
+---
+
+##  Future Improvements
+
+Possible future enhancements:
+
+- Online payment integration
+- Email notifications
+- SMS order confirmation
+- Customer order tracking
+- Discount and coupon system
+- Multiple admin accounts
+- Sales analytics dashboard
+- Inventory management
+
+---
+
+##  Developer
 
 **Haya Ali**
 
-Computer Science Student
+Developed as a complete restaurant management website project using modern web technologies and Firebase backend services.
+
+---
 
 ##  License
 
-This project was created for educational purposes.
+This project is created for educational and portfolio purposes.
+
+© 2025 FARNAJ Cuisine. All Rights Reserved.
