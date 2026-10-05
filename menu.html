@@ -90,11 +90,9 @@
 
     <!-- MENU ITEMS -->
 
-    <section id="menuContainer">
+    <section id="menuContainer"></section>
 
-    </section>
-
-    <!-- FLOATING CART BUTTON -->
+    <!-- FLOATING CART -->
 
     <button
     class="cart-floating"
@@ -121,18 +119,32 @@
             </h2>
 
             <button onclick="toggleCart()">
-
                 ✕
-
             </button>
 
         </div>
 
-        <div id="cartItems">
-
-        </div>
+        <div id="cartItems"></div>
 
         <div class="cart-footer">
+
+            <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name"
+            required>
+
+            <input
+            type="text"
+            id="customerPhone"
+            placeholder="Phone Number"
+            required>
+
+            <input
+            type="text"
+            id="customerAddress"
+            placeholder="Delivery Address"
+            required>
 
             <h3>
 
@@ -143,9 +155,9 @@
 
             <button
             class="checkout-btn"
-            onclick="checkoutWhatsApp()">
+            onclick="checkoutOrder()">
 
-                Checkout on WhatsApp
+                Place Order
 
             </button>
 
@@ -158,11 +170,48 @@
     <div
     id="overlay"
     onclick="toggleCart()">
+    </div>
+
+    <!-- SUCCESS POPUP -->
+
+    <div
+    id="successPopup"
+    class="success-popup">
+
+        <div class="popup-box">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2>
+                Order Confirmed
+            </h2>
+
+            <p>
+
+                Thank you for choosing FARNAJ Cuisine.
+
+                Your order has been received successfully.
+
+            </p>
+
+            <button onclick="closePopup()">
+
+                Continue
+
+            </button>
+
+        </div>
 
     </div>
 
-<script src="data/menu-data.js"></script>
-    <script src="js/menu.js"></script>
+    <!-- SCRIPTS -->
+
+    <script src="data/menu-data.js"></script>
+
+    <script
+    type="module"
+    src="js/menu.js">
+    </script>
 
 </body>
 

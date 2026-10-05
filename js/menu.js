@@ -1,3 +1,12 @@
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc
+}
+from
+"https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 let cart = [];
 
 const menuContainer =
@@ -23,9 +32,7 @@ function displayMenu(items){
             menuContainer.innerHTML += `
 
                 <h2 class="category-title">
-
                     ${currentCategory}
-
                 </h2>
 
             `;
@@ -35,29 +42,32 @@ function displayMenu(items){
 
             <div class="menu-card">
 
-                <h3>
-                    ${item.name}
-                </h3>
+                <img
+                src="${item.image}"
+                alt="${item.name}"
+                class="food-image">
 
-                <p>
-                    ${item.description}
-                </p>
+                <div class="menu-content">
 
-                <div class="price-row">
+                    <h3>${item.name}</h3>
 
-                    <span class="price">
+                    <p>${item.description}</p>
 
-                        PKR ${item.price}
+                    <div class="price-row">
 
-                    </span>
+                        <span class="price">
+                            PKR ${item.price}
+                        </span>
 
-                    <button
-                    class="add-btn"
-                    onclick="addToCart(${index})">
+                        <button
+                        class="add-btn"
+                        onclick="addToCart(${index})">
 
-                        Add To Cart
+                            Add To Cart
 
-                    </button>
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -65,6 +75,7 @@ function displayMenu(items){
 
         `;
     });
+
 }
 
 /* INITIAL LOAD */
@@ -91,7 +102,7 @@ searchInput.addEventListener("keyup",()=>{
 
 });
 
-/* FILTER CATEGORY */
+/* CATEGORY FILTER */
 
 function filterCategory(category){
 
@@ -110,6 +121,7 @@ function filterCategory(category){
     );
 
     displayMenu(filtered);
+
 }
 
 /* ADD TO CART */
@@ -163,28 +175,25 @@ function updateCart(){
     cartItems.innerHTML = "";
 
     let total = 0;
-
     let count = 0;
 
     cart.forEach((item,index)=>{
 
         total +=
-        item.price * item.quantity;
+        item.price *
+        item.quantity;
 
-        count += item.quantity;
+        count +=
+        item.quantity;
 
         cartItems.innerHTML += `
 
             <div class="cart-item">
 
-                <h4>
-                    ${item.name}
-                </h4>
+                <h4>${item.name}</h4>
 
                 <p>
-
                     PKR ${item.price}
-
                 </p>
 
                 <p>
@@ -212,11 +221,12 @@ function updateCart(){
             </div>
 
         `;
+
     });
 
     cartCount.textContent = count;
-
     cartTotal.textContent = total;
+
 }
 
 /* INCREASE */
@@ -226,6 +236,7 @@ function increaseQty(index){
     cart[index].quantity++;
 
     updateCart();
+
 }
 
 /* DECREASE */
@@ -241,9 +252,10 @@ function decreaseQty(index){
     }
 
     updateCart();
+
 }
 
-/* CART DRAWER */
+/* TOGGLE CART */
 
 function toggleCart(){
 
@@ -256,60 +268,186 @@ function toggleCart(){
     .getElementById("overlay")
     .classList
     .toggle("active");
+
 }
 
-/* WHATSAPP CHECKOUT */
+/* SUCCESS POPUP */
 
-function checkoutWhatsApp(){
+function showSuccessPopup(){
+
+    document
+    .getElementById("successPopup")
+    .classList
+    .add("active");
+
+}
+
+function closePopup(){
+
+    document
+    .getElementById("successPopup")
+    .classList
+    .remove("active");
+
+}
+
+/* PLACE ORDER */
+
+async function checkoutOrder(){
 
     if(cart.length === 0){
 
+        alert("Your cart is empty.");
+        return;
+
+    }
+
+    const customerName =
+    document
+    .getElementById("customerName")
+    .value
+    .trim();
+
+    const phone =
+    document
+    .getElementById("customerPhone")
+    .value
+    .trim();
+
+    const address =
+    document
+    .getElementById("customerAddress")
+    .value
+    .trim();
+
+    if(
+        !customerName ||
+        !phone ||
+        !address
+    ){
+
         alert(
-            "Your cart is empty."
+            "Please fill all customer details."
         );
 
         return;
+
     }
-
-    let message =
-    "Hello FARNAJ Cuisine,%0A%0A";
-
-    message +=
-    "I would like to order:%0A%0A";
 
     let total = 0;
 
     cart.forEach(item=>{
 
-        message +=
-
-        `${item.name}
-        x${item.quantity}
-        - PKR ${item.price * item.quantity}%0A`;
-
         total +=
         item.price *
         item.quantity;
+
     });
 
-    message +=
-
-    `%0A--------------------%0A`;
-
-    message +=
-
-    `Total:
-    PKR ${total}%0A%0A`;
-
-    message +=
-    "Please confirm my order.";
-
-    const whatsappURL =
-
-    `https://wa.me/923455276276?text=${message}`;
-
-    window.open(
-        whatsappURL,
-        "_blank"
+    const checkoutBtn =
+    document.querySelector(
+        ".checkout-btn"
     );
+
+    checkoutBtn.disabled = true;
+
+    checkoutBtn.innerHTML =
+    "Processing Order...";
+
+    try{
+
+        await addDoc(
+
+            collection(
+                db,
+                "orders"
+            ),
+
+            {
+
+                customerName,
+                phone,
+                address,
+
+                items:cart,
+
+                total,
+
+                status:"Pending",
+
+                createdAt:
+                new Date()
+
+            }
+
+        );
+
+        document
+        .getElementById(
+            "customerName"
+        ).value = "";
+
+        document
+        .getElementById(
+            "customerPhone"
+        ).value = "";
+
+        document
+        .getElementById(
+            "customerAddress"
+        ).value = "";
+
+        cart = [];
+
+        updateCart();
+
+        toggleCart();
+
+        showSuccessPopup();
+
+        checkoutBtn.disabled = false;
+
+        checkoutBtn.innerHTML =
+        "Place Order";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Failed to place order."
+        );
+
+        checkoutBtn.disabled = false;
+
+        checkoutBtn.innerHTML =
+        "Place Order";
+
+    }
+
 }
+
+/* GLOBAL FUNCTIONS */
+
+window.addToCart =
+addToCart;
+
+window.filterCategory =
+filterCategory;
+
+window.toggleCart =
+toggleCart;
+
+window.increaseQty =
+increaseQty;
+
+window.decreaseQty =
+decreaseQty;
+
+window.checkoutOrder =
+checkoutOrder;
+
+window.closePopup =
+closePopup;
