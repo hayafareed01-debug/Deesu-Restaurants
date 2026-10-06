@@ -10,23 +10,12 @@ import {
 import {
   collection,
   getDocs,
-  doc,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-/* AUTH CHECK */
-
-onAuthStateChanged(auth, (user) => {
-
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  loadOrders();
-
-});
+const container = document.getElementById("ordersContainer");
 
 /* LOGOUT */
 
@@ -38,17 +27,13 @@ window.logout = async () => {
 
 };
 
-const container =
-document.getElementById("ordersContainer");
-
 /* LOAD ORDERS */
 
 async function loadOrders() {
 
   try {
 
-    const snapshot =
-    await getDocs(
+    const snapshot = await getDocs(
       collection(db, "orders")
     );
 
@@ -60,29 +45,12 @@ async function loadOrders() {
       "<h3>No Orders Found</h3>";
 
       return;
+
     }
 
     snapshot.forEach((docSnap) => {
 
       const order = docSnap.data();
-
-      let itemsHTML = "";
-
-      if (order.items) {
-
-        order.items.forEach((item) => {
-
-          itemsHTML += `
-            <li>
-              ${item.name}
-              × ${item.quantity}
-              (PKR ${item.price})
-            </li>
-          `;
-
-        });
-
-      }
 
       container.innerHTML += `
 
@@ -107,14 +75,6 @@ async function loadOrders() {
           PKR ${order.total || 0}
         </p>
 
-        <p>
-          <strong>Items:</strong>
-        </p>
-
-        <ul>
-          ${itemsHTML}
-        </ul>
-
         <p class="${
           order.status === "Completed"
           ? "completed"
@@ -126,19 +86,17 @@ async function loadOrders() {
 
         </p>
 
-        <div style="margin-top:15px; display:flex; gap:10px;">
+        <div class="action-buttons">
 
           <button
           onclick="completeOrder('${docSnap.id}')">
 
-            Mark Complete
+            Complete
 
           </button>
 
           <button
-          style="
-          background:#dc3545;
-          color:white;"
+          class="delete-btn"
           onclick="deleteOrder('${docSnap.id}')">
 
             Delete
@@ -157,10 +115,10 @@ async function loadOrders() {
 
   catch (error) {
 
-    console.error("Load Orders Error:", error);
-
-    container.innerHTML =
-    "<h3>Error loading orders</h3>";
+    console.error(
+      "LOAD ORDER ERROR:",
+      error
+    );
 
   }
 
@@ -196,9 +154,12 @@ window.completeOrder = async (id) => {
 window.deleteOrder = async (id) => {
 
   const confirmDelete =
-  confirm("Delete this order?");
+  confirm(
+    "Delete this order?"
+  );
 
-  if (!confirmDelete) return;
+  if (!confirmDelete)
+  return;
 
   try {
 
@@ -217,3 +178,23 @@ window.deleteOrder = async (id) => {
   }
 
 };
+
+/* AUTH CHECK */
+
+onAuthStateChanged(
+  auth,
+  (user) => {
+
+    if (!user) {
+
+      window.location.href =
+      "login.html";
+
+      return;
+
+    }
+
+    loadOrders();
+
+  }
+);

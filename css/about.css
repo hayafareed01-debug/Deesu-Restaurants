@@ -1,0 +1,283 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f8f8;
+    color:#222;
+    line-height:1.7;
+}
+
+/* HERO */
+
+.about-hero{
+    height:70vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.65)
+    ),
+    url('../images/hero-bg.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero-overlay{
+    color:white;
+    padding:20px;
+}
+
+.hero-overlay h1{
+    font-family:'Cinzel',serif;
+    font-size:60px;
+    color:#d4af37;
+    margin-bottom:15px;
+}
+
+.hero-overlay p{
+    font-size:22px;
+}
+
+/* GENERAL SECTION */
+
+.section{
+    padding:80px 8%;
+}
+
+.section h2{
+    text-align:center;
+    font-family:'Cinzel',serif;
+    color:#111;
+    font-size:40px;
+    margin-bottom:5px;
+    position:relative;
+}
+
+.section h2::after{
+    content:"";
+    width:90px;
+    height:4px;
+    background:#d4af37;
+    display:block;
+    margin:15px auto;
+}
+
+.section p{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    color:#555;
+    font-size:18px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+    margin-top:35px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    font-weight:600;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    background:#d4af37;
+    color:#111;
+}
+
+/* DEESU SECTION */
+
+.deesu{
+    background:#111;
+    color:white;
+    padding:90px 8%;
+    text-align:center;
+}
+
+.deesu h2{
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.deesu h3{
+    color:#d4af37;
+    margin-top:40px;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.deesu p{
+    max-width:1000px;
+    margin:15px auto;
+    color:#ddd;
+}
+
+/* STATS */
+
+.stats{
+    padding:80px 8%;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    background:#fff;
+}
+
+.stat-card{
+    background:#111;
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card h3{
+    color:#d4af37;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    font-size:16px;
+}
+
+/* CTA */
+
+.cta{
+    background:#d4af37;
+
+    padding:80px 8%;
+
+    text-align:center;
+}
+
+.cta h2{
+    color:#111;
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+.cta a{
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#111;
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.cta a:hover{
+    background:white;
+    color:#111;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .about-hero{
+        height:55vh;
+    }
+
+    .hero-overlay h1{
+        font-size:36px;
+    }
+
+    .hero-overlay p{
+        font-size:18px;
+    }
+
+    .section{
+        padding:60px 6%;
+    }
+
+    .section h2{
+        font-size:30px;
+    }
+
+    .section p{
+        font-size:16px;
+    }
+
+    .deesu{
+        padding:70px 6%;
+    }
+
+    .deesu h2{
+        font-size:32px;
+    }
+
+    .deesu h3{
+        font-size:24px;
+    }
+
+    .cta h2{
+        font-size:28px;
+    }
+
+    .stat-card h3{
+        font-size:34px;
+    }
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:25px;
+    padding:10px 20px;
+    background:#d4af37;
+    color:#111;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+}

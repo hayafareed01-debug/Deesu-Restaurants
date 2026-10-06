@@ -187,40 +187,35 @@ function updateCart(){
         item.quantity;
 
         cartItems.innerHTML += `
+<div class="cart-item">
 
-            <div class="cart-item">
+    <img
+    src="${item.image}"
+    alt="${item.name}"
+    class="cart-item-image">
 
-                <h4>${item.name}</h4>
+    <div class="cart-item-info">
 
-                <p>
-                    PKR ${item.price}
-                </p>
+        <h4>${item.name}</h4>
 
-                <p>
+        <p>PKR ${item.price}</p>
 
-                    Quantity:
+        <p>
 
-                    <button
-                    onclick="decreaseQty(${index})">
+            Quantity:
 
-                        -
+            <button onclick="decreaseQty(${index})">-</button>
 
-                    </button>
+            ${item.quantity}
 
-                    ${item.quantity}
+            <button onclick="increaseQty(${index})">+</button>
 
-                    <button
-                    onclick="increaseQty(${index})">
+        </p>
 
-                        +
+    </div>
 
-                    </button>
-
-                </p>
-
-            </div>
-
-        `;
+</div>
+`;
 
     });
 

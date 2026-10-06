@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FARNAJ Admin Panel</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>DEESU Admin Panel</title>
 
 <style>
 
@@ -27,11 +30,6 @@ h1{
     box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
-.order-card ul{
-    margin-top:10px;
-    margin-left:20px;
-}
-
 .pending{
     color:red;
     font-weight:bold;
@@ -42,6 +40,12 @@ h1{
     font-weight:bold;
 }
 
+.action-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
 button{
     padding:10px 15px;
     border:none;
@@ -50,20 +54,50 @@ button{
     border-radius:8px;
 }
 
+.delete-btn{
+    background:#dc3545;
+    color:white;
+}
+
+.logout-wrapper{
+    text-align:center;
+    margin-top:50px;
+}
+
+.logout-btn{
+    background:#dc3545;
+    color:white;
+    padding:12px 30px;
+    font-size:16px;
+}
+
 </style>
 
 </head>
+
 <body>
 
-<h1>FARNAJ Orders</h1>
-<button onclick="logout()">
+<h1>DEESU Restaurant Orders</h1>
 
-Logout
-
-</button>
 <div id="ordersContainer"></div>
 
-<script type="module" src="js/admin.js"></script>
+<div class="logout-wrapper">
+
+    <button
+    class="logout-btn"
+    onclick="logout()">
+
+        Logout
+
+    </button>
+
+</div>
+
+<script
+type="module"
+src="js/admin.js">
+</script>
 
 </body>
+
 </html>
