@@ -1,328 +1,368 @@
-# FARNAJ Cuisine 
+# DEESU Restaurant Website
 
-FARNAJ Cuisine is a modern restaurant website developed using HTML, CSS, JavaScript, and Firebase. The platform allows customers to browse the menu, add items to a cart, place orders online, and enables administrators to manage incoming orders through a secure admin panel.
+A modern restaurant website developed for **DEESU Restaurant**, providing customers with an interactive online experience to explore the menu, place orders, contact the restaurant, and learn more about the business.
 
----
-
-##  Features
-
-### Customer Side
-
-- Modern restaurant landing page
-- Beautiful and responsive user interface
-- Browse menu items by category
-- Search menu items instantly
-- Add items to cart
-- Increase or decrease item quantity
-- Customer details form before checkout
-- Professional order success popup
-- Mobile-friendly design
-- Responsive cart drawer
-
-### Order Management
-
-- Orders stored in Firebase Firestore
-- Customer information stored securely
-- Order status tracking
-- Pending and Completed orders
-- Real-time order management
-
-### Admin Panel
-
-- Secure Firebase Authentication login
-- Protected admin access
-- View customer orders
-- View ordered items and details
-- Mark orders as completed
-- Delete orders
-- Logout functionality
+The project is built using HTML, CSS, JavaScript, Firebase Authentication, and Firebase Firestore Database.
 
 ---
 
-##  Technologies Used
+# Live Features
+
+## Home Page
+
+The website includes a fully responsive home page featuring:
+
+- Hero Section
+- Restaurant Introduction
+- Popular Dishes
+- Customer Reviews
+- Google Maps Integration
+- Contact Information
+- WhatsApp Integration
+
+---
+
+## About Us Page
+
+A dedicated About Us page containing:
+
+### About DEESU Restaurant
+
+DEESU Restaurant is committed to bringing authentic Pakistani and fusion flavors to customers.
+
+From Biryani and Haleem to Burgers, Handi, Chaat, and Continental dishes, every meal is prepared with care, quality, and hygiene.
+
+### Service Options
+
+- No-contact Delivery
+- Delivery
+- Drive-through
+- Onsite Services
+- Takeout
+- Dine-In
+
+### Popular For
+
+- Lunch
+- Dinner
+- Solo Dining
+
+### Offerings
+
+- Late-night Food
+- Quick Bites
+- Small Plates
+- Vegetarian Options
+
+### Dining Options
+
+- Lunch
+- Dinner
+- Dessert
+
+### Atmosphere
+
+- Casual
+
+### Crowd
+
+- College Students
+- Groups
+
+### Planning
+
+- Reservations Accepted
+
+### Payments
+
+- Debit Cards
+- NFC Mobile Payments
+
+### Children
+
+- Good for Kids
+- Kids Menu
+
+### Parking
+
+- Free Parking Lot
+- Free Street Parking
+
+---
+
+# About DEESU
+
+DEESU is a software engineering team founded in 2019 that designs, develops, and maintains production software for businesses and organizations.
+
+### Services
+
+- Web Development
+- Android Development
+- EdTech Platforms
+- LMS Systems
+- UI/UX Design
+- Technical Documentation
+- Cloud Infrastructure
+
+### Company Statistics
+
+| Metric | Value |
+|----------|----------|
+| Projects Shipped | 50+ |
+| Uptime SLA | 99.9% |
+| Client Satisfaction | 98% |
+| Support Availability | 24/7 |
+
+---
+
+# Menu System
+
+The menu page allows customers to:
+
+- Browse food categories
+- View food images
+- Check prices
+- Add products to cart
+- Manage quantities
+- Place orders
+
+---
+
+# Shopping Cart
+
+The cart system includes:
+
+- Product Images
+- Product Details
+- Quantity Management
+- Live Total Calculation
+- Customer Checkout Form
+
+Customers can review their selected items before placing an order.
+
+---
+
+# Firebase Integration
+
+The project uses Firebase for:
+
+## Firebase Authentication
+
+Used for:
+
+- Admin Login
+- Admin Access Protection
+
+## Firebase Firestore Database
+
+Used for:
+
+- Order Storage
+- Customer Information
+- Order Status Tracking
+
+---
+
+# Order Management System
+
+Customer orders are stored inside Firebase Firestore.
+
+Each order contains:
+
+- Customer Name
+- Phone Number
+- Address
+- Ordered Items
+- Total Amount
+- Order Status
+
+---
+
+# Admin Panel
+
+The website includes a secure admin dashboard.
+
+Admin Features:
+
+- View Orders
+- View Customer Information
+- View Order Total
+- View Order Status
+- Mark Orders as Completed
+- Delete Orders
+- Secure Logout
+
+---
+
+# Customer Reviews
+
+Customers can:
+
+- Submit Reviews
+- Select Ratings
+- Upload Images
+
+Reviews help improve customer engagement and restaurant credibility.
+
+---
+
+# Contact & Location
+
+The website includes:
+
+- Contact Information
+- WhatsApp Ordering
+- Google Maps Integration
+- Restaurant Location
+
+---
+
+# Technologies Used
+
+## Frontend
 
 - HTML5
 - CSS3
 - JavaScript (ES6)
-- Firebase Firestore
+
+## Backend Services
+
 - Firebase Authentication
-- Google Fonts
+- Firebase Firestore Database
+
+## External Libraries
+
 - Font Awesome
+- Google Fonts
 
 ---
 
-##  Project Structure
+# Project Structure
 
 ```text
-FARNAJ-Cuisine/
+DEESU-Restaurant/
+
 │
 ├── index.html
+├── about.html
 ├── menu.html
+├── cart.html
 ├── login.html
 ├── admin.html
 │
 ├── css/
 │   ├── style.css
-│   └── menu.css
+│   ├── about.css
+│   ├── menu.css
+│   └── cart.css
 │
 ├── js/
-│   ├── firebase.js
+│   ├── script.js
 │   ├── menu.js
+│   ├── cart.js
+│   ├── firebase.js
 │   ├── login.js
 │   └── admin.js
 │
-├── data/
-│   └── menu-data.js
+├── images/
+│   ├── hero-bg.jpg
+│   ├── menu-images
+│   └── assets
 │
-├── assets/
-│   ├── images/
-│   └── logo/
+├── firebase.json
 │
-└── screenshots/
+└── README.md
 ```
 
 ---
 
-##  Firebase Integration
+# Running Locally
 
-### Firestore Database
+Because this project uses JavaScript Modules and Firebase, it must be run using a local server.
 
-Orders are stored in a Firebase Firestore collection.
+## Using VS Code
 
-Collection Name:
+Install:
+
+- Live Server Extension
+
+Then:
+
+1. Open the project folder.
+2. Right-click `index.html`.
+3. Select **Open With Live Server**.
+
+The website will run at:
 
 ```text
-orders
+http://127.0.0.1:5500/
 ```
 
-Each order contains:
+Important:
 
-```javascript
-{
-  customerName,
-  phone,
-  address,
-  items,
-  total,
-  status,
-  createdAt
-}
-```
-
-### Firebase Authentication
-
-Firebase Authentication is used to secure the admin dashboard.
-
-Only authorized users can access:
+Do NOT open files directly using:
 
 ```text
-admin.html
+file:///...
+```
+
+because Firebase and JavaScript modules will not work correctly.
+
+---
+
+# Deployment
+
+## GitHub
+
+Push updates using:
+
+```bash
+git add .
+git commit -m "Project update"
+git push origin master
+```
+
+## Firebase Hosting
+
+Deploy the latest version using:
+
+```bash
+firebase deploy --only hosting
 ```
 
 ---
 
-##  Live Website
+# Future Improvements
 
-### Customer Website
+Planned enhancements include:
 
-https://farnaj-cuisine.web.app
-
-### Admin Login
-
-https://farnaj-cuisine.web.app/login.html
-
----
-
-##  How to Open the Website
-
-### Option 1: Open the Live Website (Recommended)
-
-Visit:
-
-```text
-https://farnaj-cuisine.web.app
-```
-
-No installation is required.
+- Online Payment Integration
+- Real-Time Order Updates
+- Admin Dashboard Analytics
+- Sales Reports
+- Customer Accounts
+- Reservation System
+- Multi-Branch Management
 
 ---
 
-### Option 2: Run Locally Using VS Code
+# Developed By
 
-This project uses JavaScript Modules and Firebase services.
+## DEESU
 
-Because of this, opening files directly with double-click will not work properly.
+Engineering Reliable Software Since 2019
 
- Do NOT open:
-
-```text
-file:///C:/Users/.../index.html
-```
-
-This can cause errors such as:
-
-```text
-Access to script has been blocked by CORS policy
-filterCategory is not defined
-menuItems is not defined
-```
-
-### Correct Method
-
-1. Open the project folder in VS Code.
-2. Install the Live Server extension.
-3. Right-click on `index.html`.
-4. Select **Open with Live Server**.
-5. Open the generated URL:
-
-```text
-http://127.0.0.1:5500/index.html
-```
-
-or
-
-```text
-http://localhost:5500/index.html
-```
-
-Menu Page:
-
-```text
-http://127.0.0.1:5500/menu.html
-```
-
-Admin Login:
-
-```text
-http://127.0.0.1:5500/login.html
-```
+- Web Applications
+- Android Applications
+- EdTech Platforms
+- LMS Systems
+- Cloud Infrastructure
+- UI/UX Design
 
 ---
 
-##  Ordering Process
+# License
 
-1. Customer opens the menu page.
-2. Customer browses menu items.
-3. Customer adds items to the cart.
-4. Customer enters:
-   - Name
-   - Phone Number
-   - Delivery Address
-5. Customer clicks **Place Order**.
-6. Order is saved in Firebase Firestore.
-7. Success popup confirms the order.
-8. Admin can view and manage orders through the dashboard.
+This project is developed for educational, portfolio, and restaurant management purposes.
 
----
-
-##  Admin Access
-
-### Login Process
-
-1. Open:
-
-```text
-https://farnaj-cuisine.web.app/login.html
-```
-
-2. Enter authorized admin credentials.
-3. Login successfully.
-4. Access the admin dashboard.
-
-### Admin Features
-
-- View all orders
-- View customer information
-- View ordered items
-- Mark orders as completed
-- Delete orders
-- Logout securely
-
----
-
-##  Responsive Design
-
-The website is fully responsive and optimized for:
-
-- Desktop Computers
-- Laptops
-- Tablets
-- Mobile Phones
-
-Responsive features include:
-
-- Flexible layouts
-- Mobile-friendly navigation
-- Responsive menu cards
-- Responsive cart drawer
-- Touch-friendly buttons
-- Optimized forms and inputs
-
----
-
-##  Screenshots
-
-Recommended screenshots to include in the repository:
-
-### Home Page
-- Hero Section
-- Featured Menu
-
-### Menu Page
-- Search Functionality
-- Category Filters
-- Food Cards
-
-### Cart System
-- Cart Drawer
-- Customer Details Form
-
-### Order Confirmation
-- Success Popup
-
-### Admin Panel
-- Login Page
-- Orders Dashboard
-- Order Management
-
-Example:
-
-```md
-![Home Page](screenshots/home-page.png)
-
-![Menu Page](screenshots/menu-page.png)
-
-![Admin Panel](screenshots/admin-panel.png)
-```
-
----
-
-##  Future Improvements
-
-Potential future enhancements:
-
-- Online payment integration
-- Email notifications
-- SMS order confirmation
-- Customer order tracking
-- Discount and coupon system
-- Multiple admin accounts
-- Analytics dashboard
-- Inventory management
-- Customer reviews and ratings
-
----
-
-##  Developer
-
-**Haya Ali**
-
-Developed as a complete restaurant management website project using HTML, CSS, JavaScript, Firebase Firestore, and Firebase Authentication.
-
----
-
-##  License
-
-This project was created for educational, portfolio, and learning purposes.
-
-© FARNAJ Cuisine. All Rights Reserved.
+© 2026 DEESU Restaurant. All Rights Reserved.
